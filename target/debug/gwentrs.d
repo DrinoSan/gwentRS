@@ -1,0 +1,1 @@
+/Users/sandi/DEV/gwentl/gwentrs/target/debug/gwentrs: /Users/sandi/DEV/gwentl/gwentrs/src/main.rs /Users/sandi/DEV/gwentl/gwentrs/src/oop/Game.rs /Users/sandi/DEV/gwentl/gwentrs/src/oop/Interface.rs /Users/sandi/DEV/gwentl/gwentrs/src/oop/mod.rs
