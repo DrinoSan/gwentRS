@@ -1,7 +1,7 @@
 use std::env;
 
 mod oop;
-// use oop::{Interface, Game};
+use oop::Interface;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -13,7 +13,7 @@ fn main() {
 
     // oop for the module folder, First Interface for the file, second Interface for the struct
     // itself
-    let interface = oop::Interface::Interface::new();
+    let interface = Interface::Interface::new();
     let game = oop::Game::Game::new(interface);
 
     dbg!(args);
