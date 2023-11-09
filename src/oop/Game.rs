@@ -2,28 +2,19 @@ use std::fs;
 
 use serde_json::{Error as SerdeError, Value};
 
-use super::Interface::Interface;
 use super::Config::Config;
+use super::Interface::Interface;
 
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #[derive(Debug)]
 pub enum ConfigErrors {
     FsErrorOwn(std::io::Error),
     SerdeErrorOwn(SerdeError),
 }
 
-impl From<SerdeError> for ConfigErrors {
-    fn from(error: SerdeError) -> Self {
-        ConfigErrors::SerdeErrorOwn(error)
-    }
-}
-
 //-----------------------------------------------------------------------------
-#[derive(Debug)]
-pub enum ConfigErrorKind {
-    FsError,
-    SerdeError,
-}
-
 impl ConfigErrors {
     pub fn kind(&self) -> ConfigErrorKind {
         match self {
@@ -34,11 +25,30 @@ impl ConfigErrors {
 }
 
 //-----------------------------------------------------------------------------
+impl From<SerdeError> for ConfigErrors {
+    fn from(error: SerdeError) -> Self {
+        ConfigErrors::SerdeErrorOwn(error)
+    }
+}
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+#[derive(Debug)]
+pub enum ConfigErrorKind {
+    FsError,
+    SerdeError,
+}
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 pub struct Game {
     io: Interface,
     pub config: serde_json::Value,
 }
 
+//-----------------------------------------------------------------------------
 impl Game {
     pub fn new(io: Interface) -> Self {
         Game {

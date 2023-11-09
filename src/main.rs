@@ -18,7 +18,7 @@ fn main() {
     let mut game = oop::Game::Game::new(io);
 
     let config_name: &str = &args[1];
-    let ret = match game.load_config(config_name) {
+    let _ = match game.load_config(config_name) {
         Ok(file) => file,
         Err(error) => match error.kind() {
             ConfigErrorKind::FsError => panic!("File {} not found please fix your path", &args[1]),
