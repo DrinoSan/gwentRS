@@ -26,7 +26,7 @@ fn main() {
         },
     };
 
-    game.print_config();
+    // game.print_config();
 
     // if ( !game.loadConfig( std::string( argv[ 1 ] ) ) )
     // {
