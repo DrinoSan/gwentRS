@@ -3,6 +3,7 @@ use std::fs;
 use serde_json::{Error as SerdeError, Value};
 
 use super::Interface::Interface;
+use super::Config::Config;
 
 #[derive(Debug)]
 pub enum ConfigErrors {
@@ -51,6 +52,8 @@ impl Game {
         };
 
         self.config = serde_json::from_str(&tmp_config)?;
+
+        Config::validate_config(&self.config);
 
         Ok(())
     }
