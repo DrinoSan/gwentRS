@@ -21,8 +21,7 @@ impl Config {
             && Self::check_card_count(configuration)
             && Self::check_name_length(configuration)
             && Self::check_equals(configuration)
-            && Self::check_spells( configuration );
-
+            && Self::check_spells(configuration);
     }
 
     fn check_type_of_cards(config: &Map<String, Value>) -> bool {
@@ -50,7 +49,8 @@ impl Config {
         // let creature_vec = serde_json::from_value::<Vec<Creature>>(creature_arr.clone());
 
         let creature_arr = config["Creatures"].as_array().unwrap();
-        let creature_vec: Vec<Creature> = serde_json::from_value(serde_json::Value::Array(creature_arr.clone())).unwrap();
+        let creature_vec: Vec<Creature> =
+            serde_json::from_value(serde_json::Value::Array(creature_arr.clone())).unwrap();
 
         for i in 0..creature_vec.len() {
             for j in (i + 1)..creature_vec.len() {
@@ -69,9 +69,6 @@ impl Config {
         return true;
     }
 
-
-    fn check_spells(config: &Map<String, Value>) -> bool {
-        
-    }
+    fn check_spells(config: &Map<String, Value>) -> bool {}
 }
 
